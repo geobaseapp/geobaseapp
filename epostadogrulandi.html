@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E-posta Doğrulama — GeoBase</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      :root { --bg:#0d1922; --panel:#132532; --line:#23404f; --text:#e8f1f7; --muted:#9fb6c4; --accent:#2f80ed; --ok:#45c9b8; --warn:#e9b949; }
+      * { box-sizing: border-box; }
+      body {
+        margin:0; padding:48px 16px 72px; background:var(--bg); color:var(--text);
+        font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      main { max-width: 560px; margin: 0 auto; }
+      .card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:26px 24px; }
+      .mark { font-size: 44px; line-height: 1; margin-bottom: 14px; }
+      h1 { font-size: 22px; margin: 0 0 10px; }
+      p { margin: 0 0 12px; }
+      .muted { color: var(--muted); font-size: 14.5px; }
+      ol { margin: 8px 0 0; padding-left: 20px; }
+      li { margin-bottom: 8px; }
+      button, .btn {
+        display:inline-block; width:100%; text-align:center; margin-top:14px; padding:14px 18px;
+        background:var(--accent); color:#fff; border:0; border-radius:12px;
+        font-size:15px; font-weight:700; cursor:pointer; text-decoration:none;
+      }
+      button.secondary { background:transparent; color:var(--ok); border:1px solid var(--line); }
+      #addr {
+        display:none; margin-top:12px; padding:12px; background:#0a141c; border:1px solid var(--line);
+        border-radius:10px; color:var(--muted); font-size:12px; word-break:break-all; font-family:ui-monospace,Menlo,Consolas,monospace;
+      }
+      .hidden { display:none !important; }
+      footer { margin-top:22px; text-align:center; }
+      footer a { color:var(--muted); font-size:13px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <div class="mark" id="mark">⏳</div>
+        <h1 id="title">Kontrol ediliyor…</h1>
+        <div id="body"></div>
+        <div id="addr"></div>
+      </div>
+      <footer>
+        <a href="./">GeoBase</a>
+      </footer>
+    </main>
+
+    <script>
+      // Supabase, e-postadaki bağlantıyı doğruladıktan sonra buraya yönlendirir.
+      // Sonuç bilgisi adresin "#" kısmında gelir:
+      //   başarı  → #access_token=...&refresh_token=...&type=recovery|signup
+      //   hata    → #error=...&error_description=...
+      // Bu değerler sunucuya GİTMEZ, yalnızca tarayıcıda okunur.
+      (function () {
+        var params = new URLSearchParams(
+          (location.hash || "").replace(/^#/, "") || (location.search || "").replace(/^\?/, "")
+        );
+        var mark = document.getElementById("mark");
+        var title = document.getElementById("title");
+        var body = document.getElementById("body");
+        var addr = document.getElementById("addr");
+
+        function html(s) { body.innerHTML = s; }
+
+        var error = params.get("error_description") || params.get("error");
+        var type = params.get("type");
+        var hasSession = params.get("access_token") && params.get("refresh_token");
+
+        if (error) {
+          mark.textContent = "⚠️";
+          mark.style.color = "var(--warn)";
+          title.textContent = "Bağlantı geçersiz veya süresi dolmuş";
+          html(
+            '<p class="muted">' + String(error).replace(/[<>&]/g, "") + "</p>" +
+            "<p>Bu bağlantılar tek kullanımlıktır ve kısa sürede geçersiz olur. " +
+            "Uygulamaya dönüp yeni bir doğrulama e-postası ya da yeni bir şifre sıfırlama kodu isteyin.</p>" +
+            '<a class="btn" href="sahakesif://">Uygulamayı aç</a>'
+          );
+          return;
+        }
+
+        if (type === "recovery") {
+          mark.textContent = "🔑";
+          title.textContent = "Şifre sıfırlama bağlantısı açıldı";
+          html(
+            "<p>Şifreni bu sayfadan değil, uygulamadan belirliyorsun. Yapman gereken:</p>" +
+            "<ol>" +
+            "<li>Aşağıdaki düğmeye basıp bu sayfanın adresini kopyala.</li>" +
+            "<li>Uygulamada <b>Şifre Sıfırlama</b> ekranını aç.</li>" +
+            "<li>Kopyaladığın adresi <b>“E-postaya gelen kod”</b> alanına yapıştır, yeni şifreni yaz.</li>" +
+            "</ol>" +
+            '<button id="copy">Adresi kopyala</button>' +
+            '<a class="btn secondary" href="sahakesif://">Uygulamayı aç</a>'
+          );
+          addr.style.display = "block";
+          addr.textContent = location.href;
+          document.getElementById("copy").addEventListener("click", function () {
+            var btn = this;
+            var done = function () { btn.textContent = "Kopyalandı ✓"; };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(location.href).then(done, function () {
+                btn.textContent = "Kopyalanamadı — aşağıdaki adresi elle seç";
+              });
+            } else {
+              var r = document.createRange();
+              r.selectNodeContents(addr);
+              var sel = window.getSelection();
+              sel.removeAllRanges();
+              sel.addRange(r);
+              btn.textContent = "Seçildi — kopyala";
+            }
+          });
+          return;
+        }
+
+        if (hasSession) {
+          mark.textContent = "✅";
+          mark.style.color = "var(--ok)";
+          title.textContent = "E-posta adresin doğrulandı";
+          html(
+            "<p>Hesabın artık kullanıma hazır. Uygulamaya dönüp e-postan ve şifrenle giriş yapabilirsin.</p>" +
+            '<a class="btn" href="sahakesif://">Uygulamayı aç</a>' +
+            '<p class="muted" style="margin-top:14px">Düğme çalışmazsa uygulamayı telefonundan elle açman yeterli.</p>'
+          );
+          return;
+        }
+
+        // Doğrudan gelinmiş (adres çubuğuna yazılmış) — yönlendirme bilgisi yok.
+        mark.textContent = "📧";
+        title.textContent = "E-posta doğrulama";
+        html(
+          "<p>Bu sayfa, e-postandaki doğrulama veya şifre sıfırlama bağlantısına tıkladığında açılır.</p>" +
+          "<p class=\"muted\">Buraya doğrudan geldiysen yapman gereken bir şey yok; uygulamaya dönebilirsin.</p>" +
+          '<a class="btn" href="sahakesif://">Uygulamayı aç</a>'
+        );
+      })();
+    </script>
+  </body>
+</html>

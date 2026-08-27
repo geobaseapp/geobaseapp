@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gizlilik Politikası — GeoBase</title>
+    <meta
+      name="description"
+      content="GeoBase uygulamasının gizlilik politikası / Privacy Policy for the GeoBase app."
+    />
+    <style>
+      :root {
+        --bg: #0d1922;
+        --panel: #132532;
+        --line: #23404f;
+        --text: #e8f1f7;
+        --muted: #9fb6c4;
+        --accent: #2f80ed;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 32px 16px 72px;
+        background: var(--bg);
+        color: var(--text);
+        font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      main { max-width: 820px; margin: 0 auto; }
+      h1 { font-size: 28px; line-height: 1.25; margin: 0 0 4px; }
+      h2 { font-size: 20px; margin: 36px 0 10px; color: #fff; }
+      h3 { font-size: 16px; margin: 22px 0 6px; color: var(--accent); }
+      p, li { color: var(--text); }
+      .muted { color: var(--muted); }
+      .lead { margin: 0 0 24px; color: var(--muted); font-size: 15px; }
+      section {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 20px 22px;
+        margin-bottom: 20px;
+      }
+      table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 14.5px; }
+      th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+      th { color: var(--muted); font-weight: 600; }
+      .wrap { overflow-x: auto; }
+      code { background: #0a141c; padding: 1px 6px; border-radius: 5px; font-size: 14px; }
+      a { color: var(--accent); }
+      .switch { margin: 0 0 26px; font-size: 14px; }
+      hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 32px; }
+      .badge {
+        display: inline-block; font-size: 12px; letter-spacing: .04em; text-transform: uppercase;
+        color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="switch"><a href="#en">English version below ↓</a></p>
+
+      <span class="badge">GeoBase</span>
+      <h1>Gizlilik Politikası</h1>
+      <p class="lead">Son güncelleme: 10 Ağustos 2026 · Geçerli sürüm: 2.0.0</p>
+
+      <section>
+        <h2>Kısaca</h2>
+        <ul>
+          <li>Uygulama <strong>reklam göstermez</strong>, <strong>analitik/izleme (tracking) yapmaz</strong> ve verilerinizi <strong>satmaz</strong>.</li>
+          <li><strong>Fotoğraflarınız yalnızca cihazınızda saklanır</strong>, sunucuya yüklenmez.</li>
+          <li>Konumunuz <strong>yalnızca uygulama açıkken (when in use)</strong> kullanılır; arka planda konum takibi yapılmaz.</li>
+          <li>Hesap açarsanız proje verileriniz, cihazlar arasında eşitlenmek üzere sunucuda saklanır.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>1. Sorumlu (Veri Sorumlusu)</h2>
+        <p>
+          Bu uygulamayı geliştiren ve işleten kişiye aşağıdaki adresten ulaşabilirsiniz:<br />
+          <strong>E-posta:</strong> <a href="mailto:ramazan29arslan@gmail.com">ramazan29arslan@gmail.com</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Hangi verileri işliyoruz?</h2>
+        <div class="wrap">
+          <table>
+            <thead>
+              <tr><th>Veri</th><th>Neden</th><th>Nerede durur</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>E-posta adresi ve parola</td>
+                <td>Hesap açmak ve oturum açmak</td>
+                <td>Supabase (kimlik doğrulama). Parola karma (hash) olarak saklanır, tarafımızca görülemez.</td>
+              </tr>
+              <tr>
+                <td>Ad / görünen ad</td>
+                <td>Ekip üyelerinin birbirini tanıması, proje paylaşımı</td>
+                <td>Supabase</td>
+              </tr>
+              <tr>
+                <td>Proje verisi: konumlar (enlem/boylam), klasörler, notlar, ekipman/envanter kayıtları, analiz çalışmaları</td>
+                <td>Uygulamanın temel işlevi; cihazlar arası eşitleme ve ekip paylaşımı</td>
+                <td>Cihazda (SQLite) ve hesabınız varsa Supabase’de</td>
+              </tr>
+              <tr>
+                <td>Cihaz konumu (GPS)</td>
+                <td>Haritada konumunuzu göstermek, bulunduğunuz yerde keşif noktası/analiz noktası oluşturmak</td>
+                <td>Yalnızca cihazda işlenir. Siz bir noktayı kaydetmedikçe konumunuz sunucuya gönderilmez.</td>
+              </tr>
+              <tr>
+                <td>Fotoğraflar (kamera veya galeri)</td>
+                <td>Keşif noktasına fotoğraf eklemek</td>
+                <td><strong>Yalnızca cihazınızda.</strong> Sunucuya yüklenmez.</td>
+              </tr>
+              <tr>
+                <td>Çevrimdışı harita ve yükseklik (DEM) verisi</td>
+                <td>İnternet olmayan sahada haritayı ve arazi analizini kullanabilmek</td>
+                <td>Yalnızca cihazınızın uygulama klasöründe</td>
+              </tr>
+              <tr>
+                <td>Bildirimler</td>
+                <td>Çevrimdışı indirme tamamlandığında haber vermek</td>
+                <td>Yalnızca <strong>yerel</strong> bildirim; uzaktan (push) bildirim gönderilmez, bildirim kimliği (token) sunucuya iletilmez.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">
+          Reklam kimliği (IDFA/AAID) toplamıyoruz, üçüncü taraf reklam ağı veya analitik SDK’sı (Google Analytics,
+          Firebase Analytics, Facebook SDK vb.) kullanmıyoruz.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Kullandığımız üçüncü taraf hizmetler</h2>
+        <p>
+          Aşağıdaki hizmetler uygulamanın çalışması için gereklidir. Bu hizmetlere istek gönderilirken teknik olarak
+          <strong>IP adresiniz</strong> ve istenen harita karesinin/koordinatın bilgisi karşı tarafa ulaşır.
+        </p>
+        <div class="wrap">
+          <table>
+            <thead><tr><th>Hizmet</th><th>Ne için</th></tr></thead>
+            <tbody>
+              <tr><td>Supabase</td><td>Hesap/oturum yönetimi ve proje verisinin bulutta saklanması</td></tr>
+              <tr><td>Expo (EAS Update)</td><td>Uygulamanın güncelleme paketlerini indirmesi</td></tr>
+              <tr><td>Esri / ArcGIS, Google Maps, Bing Maps, OpenStreetMap, MapTiler/MapLibre karo sunucuları</td><td>Uydu ve sokak haritası görüntüleri</td></tr>
+              <tr><td>Nominatim (OpenStreetMap) ve Overpass API</td><td>Yer adı arama ve harita üzerinde yer adları</td></tr>
+              <tr><td>AWS Terrain Tiles (elevation-tiles-prod), Open-Elevation, Mapbox Terrain</td><td>Arazi yükseklik (DEM) verisi — 3B arazi ve görüş analizi</td></tr>
+              <tr><td>unpkg (CDN)</td><td>Harita motoru (MapLibre GL) kütüphanesinin yüklenmesi</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">Bu sağlayıcıların kendi gizlilik politikaları geçerlidir.</p>
+      </section>
+
+      <section>
+        <h2>4. İzinler ve neden isteniyor?</h2>
+        <h3>Konum (yalnızca uygulama kullanılırken)</h3>
+        <p>Haritada mavi noktayı göstermek ve “konumumu nokta olarak ekle” gibi işlemler için. Uygulama <strong>arka planda konumunuzu izlemez</strong>.</p>
+        <h3>Kamera</h3>
+        <p>Keşif noktasına yerinde fotoğraf çekmek için.</p>
+        <h3>Fotoğraflar / galeri</h3>
+        <p>Var olan bir fotoğrafı keşif noktasına eklemek için.</p>
+        <h3>Bildirimler</h3>
+        <p>Çevrimdışı harita indirmesi tamamlandığında bilgilendirmek için. Reddedebilirsiniz; uygulama çalışmaya devam eder.</p>
+      </section>
+
+      <section>
+        <h2>5. Verilerin saklanması ve silinmesi</h2>
+        <ul>
+          <li>Hesabınızı kullandığınız sürece proje verileriniz saklanır.</li>
+          <li>Uygulamayı silerseniz cihazdaki tüm yerel veri (fotoğraflar, çevrimdışı haritalar dâhil) silinir.</li>
+          <li>
+            <strong>Hesabınızın ve sunucudaki verilerin tamamen silinmesini</strong> istiyorsanız
+            <a href="mailto:ramazan29arslan@gmail.com?subject=Hesap%20silme%20talebi">ramazan29arslan@gmail.com</a>
+            adresine hesap e-postanızdan yazın; talebiniz en geç <strong>30 gün</strong> içinde yerine getirilir.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. Güvenlik</h2>
+        <p>
+          Sunucuyla tüm iletişim HTTPS (TLS) üzerinden şifreli yapılır. Sunucu tarafında her kullanıcı yalnızca kendi
+          ve kendisiyle paylaşılan projelere erişebilir (satır düzeyi güvenlik kuralları). Buna rağmen internet
+          üzerinden aktarımda %100 güvenlik hiçbir sistemde garanti edilemez.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Çocuklar</h2>
+        <p>Uygulama 13 yaş altındaki çocuklara yönelik değildir ve bilerek çocuklardan veri toplamaz.</p>
+      </section>
+
+      <section>
+        <h2>8. Haklarınız (KVKK / GDPR)</h2>
+        <p>
+          Verilerinize erişme, düzeltme, silme, işlemeyi kısıtlama ve verilerinizi taşınabilir biçimde alma
+          haklarına sahipsiniz. Bu haklarınızı kullanmak için yukarıdaki e-posta adresine yazabilirsiniz.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Değişiklikler</h2>
+        <p>
+          Bu politika güncellenirse bu sayfadaki “Son güncelleme” tarihi değişir. Önemli değişikliklerde uygulama
+          içinde bilgilendirme yapılır.
+        </p>
+      </section>
+
+      <hr />
+
+      <span class="badge" id="en">GeoBase</span>
+      <h1>Privacy Policy</h1>
+      <p class="lead">Last updated: 10 August 2026 · Applies to version 2.0.0</p>
+
+      <section>
+        <h2>Summary</h2>
+        <ul>
+          <li>The app shows <strong>no ads</strong>, uses <strong>no analytics or tracking</strong>, and <strong>never sells</strong> your data.</li>
+          <li><strong>Your photos stay on your device</strong> and are never uploaded to a server.</li>
+          <li>Location is used <strong>only while the app is in use</strong>; there is no background location tracking.</li>
+          <li>If you create an account, your project data is stored on our server so it can sync across devices.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>1. Who is responsible</h2>
+        <p>
+          The developer and operator of this app can be reached at:<br />
+          <strong>Email:</strong> <a href="mailto:ramazan29arslan@gmail.com">ramazan29arslan@gmail.com</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>2. What data we process</h2>
+        <div class="wrap">
+          <table>
+            <thead><tr><th>Data</th><th>Purpose</th><th>Where it is stored</th></tr></thead>
+            <tbody>
+              <tr><td>Email address and password</td><td>Account creation and sign-in</td><td>Supabase (authentication). Passwords are stored hashed and are not visible to us.</td></tr>
+              <tr><td>Name / display name</td><td>Identifying team members, project sharing</td><td>Supabase</td></tr>
+              <tr><td>Project data: locations (latitude/longitude), folders, notes, equipment/inventory records, analysis projects</td><td>Core functionality; cross-device sync and team sharing</td><td>On device (SQLite) and, if you have an account, on Supabase</td></tr>
+              <tr><td>Device location (GPS)</td><td>Showing your position on the map and creating survey/analysis points at your location</td><td>Processed on device only. Your location is not sent to the server unless you save a point.</td></tr>
+              <tr><td>Photos (camera or gallery)</td><td>Attaching photos to a survey point</td><td><strong>On your device only.</strong> Not uploaded.</td></tr>
+              <tr><td>Offline map and elevation (DEM) data</td><td>Using maps and terrain analysis without an internet connection</td><td>Only in the app's folder on your device</td></tr>
+              <tr><td>Notifications</td><td>Telling you when an offline download has finished</td><td><strong>Local</strong> notifications only; no push notifications are sent and no notification token leaves the device.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">
+          We do not collect advertising identifiers (IDFA/AAID) and we do not embed third-party advertising or
+          analytics SDKs (Google Analytics, Firebase Analytics, Facebook SDK, etc.).
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Third-party services</h2>
+        <p>
+          The services below are required for the app to work. When requests are made to them, your
+          <strong>IP address</strong> and the requested map tile/coordinate are technically visible to that provider.
+        </p>
+        <div class="wrap">
+          <table>
+            <thead><tr><th>Service</th><th>Used for</th></tr></thead>
+            <tbody>
+              <tr><td>Supabase</td><td>Accounts/sessions and cloud storage of project data</td></tr>
+              <tr><td>Expo (EAS Update)</td><td>Downloading app update bundles</td></tr>
+              <tr><td>Esri / ArcGIS, Google Maps, Bing Maps, OpenStreetMap, MapTiler/MapLibre tile servers</td><td>Satellite and street map imagery</td></tr>
+              <tr><td>Nominatim (OpenStreetMap) and Overpass API</td><td>Place-name search and map labels</td></tr>
+              <tr><td>AWS Terrain Tiles (elevation-tiles-prod), Open-Elevation, Mapbox Terrain</td><td>Terrain elevation (DEM) data for 3D terrain and line-of-sight analysis</td></tr>
+              <tr><td>unpkg (CDN)</td><td>Loading the map engine library (MapLibre GL)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">These providers' own privacy policies apply.</p>
+      </section>
+
+      <section>
+        <h2>4. Permissions</h2>
+        <h3>Location (while using the app)</h3>
+        <p>To show your position on the map and to add a point at your current location. The app <strong>does not track your location in the background</strong>.</p>
+        <h3>Camera</h3>
+        <p>To take a photo of a survey point on site.</p>
+        <h3>Photos / gallery</h3>
+        <p>To attach an existing photo to a survey point.</p>
+        <h3>Notifications</h3>
+        <p>To tell you when an offline map download has finished. You may decline; the app keeps working.</p>
+      </section>
+
+      <section>
+        <h2>5. Retention and deletion</h2>
+        <ul>
+          <li>Your project data is retained for as long as you use your account.</li>
+          <li>Uninstalling the app deletes all local data on the device, including photos and offline maps.</li>
+          <li>
+            To have <strong>your account and all server-side data permanently deleted</strong>, write from your
+            account email to
+            <a href="mailto:ramazan29arslan@gmail.com?subject=Account%20deletion%20request">ramazan29arslan@gmail.com</a>.
+            Requests are completed within <strong>30 days</strong>.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. Security</h2>
+        <p>
+          All communication with the server is encrypted over HTTPS (TLS). On the server, each user can only access
+          their own projects and projects shared with them (row-level security rules). No system can guarantee 100%
+          security of data transmitted over the internet.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Children</h2>
+        <p>The app is not directed at children under 13 and does not knowingly collect data from them.</p>
+      </section>
+
+      <section>
+        <h2>8. Your rights (GDPR / KVKK)</h2>
+        <p>
+          You have the right to access, correct, delete, restrict processing of, and receive a portable copy of your
+          data. Contact the email address above to exercise these rights.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Changes</h2>
+        <p>
+          If this policy changes, the "Last updated" date on this page will change. Significant changes will also be
+          announced inside the app.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
